@@ -4,6 +4,26 @@ from class_defs import Location
 from sailor_names import locationNames, allFactions
 
 
+def coord_flavor(coords: list) -> str:
+    """Take a coordinate and return it as a string.
+
+       Ex. (-15, 22) returns '15°S, 22°E'
+    """
+    if coords[0] < 0:
+        latitude = 'S'
+        coords[0] *= -1
+    else:
+        latitude = 'N'
+
+    if coords[1] < 0:
+        longitude = 'W'
+        coords[1] *= -1
+    else:
+        longitude = 'E'
+
+    return ("%d°%c, %d°%c" % (coords[0], latitude, coords[1], longitude))
+
+
 def make_locale(current_locales: list) -> Location:
     """Randomly create a new location
     """
