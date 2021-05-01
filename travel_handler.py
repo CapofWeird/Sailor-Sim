@@ -3,19 +3,19 @@
 from math import atan2, degrees, pow, sqrt
 
 
-def get_slope(current_pos, dest_pos):
+def get_slope(current_pos: list, dest_pos: list) -> float:
     """Find the slope between the ship's current
        position and the given destination"""
     return (current_pos[1] - dest_pos[1]) / (current_pos[0] - dest_pos[0])
 
 
-def get_dist_to_dest(current_pos, dest_pos):
+def get_dist_to_dest(current_pos, dest_pos) -> float:
     """Find the distance between the ship and the given destination"""
     return sqrt(pow((dest_pos[1] - current_pos[1]), 2)
                 + pow((dest_pos[0] - current_pos[0]), 2))
 
 
-def get_angle_to_dest(current_pos, dest_pos):
+def get_angle_to_dest(current_pos: list, dest_pos: list) -> int:
     """Find the direction in degrees to point the
        ship towards the given destination"""
     angle = degrees(atan2((dest_pos[1] - current_pos[1]),
@@ -25,7 +25,8 @@ def get_angle_to_dest(current_pos, dest_pos):
     return angle
 
 
-def get_time_to_dest(current_pos, dest_pos, ship_speed):
+def get_time_to_dest(current_pos: list, dest_pos: list,
+                     ship_speed: int) -> float:
     """Find the time in hours to get to the given destination"""
     return get_dist_to_dest(current_pos, dest_pos) / ship_speed
 
@@ -43,7 +44,8 @@ to happen in the mean time.
 """
 
 
-def plot_path(current_pos, dest_pos, ship_speed) -> list:
+def plot_path(current_pos: list, dest_pos: list,
+              ship_speed: int) -> list:
     """Find the path of points to get to the given destination"""
 
     # The list of the distances each point will be from the boat
