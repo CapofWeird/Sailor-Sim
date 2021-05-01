@@ -1,3 +1,5 @@
+# TODO: #4
+
 # List of possible first names
 sailorFirstNames = (
     'Alphonse',
